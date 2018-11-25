@@ -8,7 +8,7 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * `vue ui` - Start the UI and use it to run tasks
 * `yarn` - Project setup, install dependencies
 * `yarn serve` - Compiles and hot-reloads for development
-* `yarn build` - Compiles and minifies for production, generating static site files in `./docs`
+* `yarn build` - Compiles and minifies for production, generating static site files in `./dist`
 * `firebase deploy` - Deploy production files to Firebase
 * `yarn present` - Use [cleaver](https://github.com/jdan/cleaver) to work on the presentation and watch for changes
 
@@ -24,7 +24,6 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * [/] Write paper
 * [_] Make presentation
 
-* [_] Fix bug with adding edges messing up simulation
 * [_] Add title tooltips to explain things, expecially the CPT
 * [_] Show realtime simulation with dashed/colored edges
 
@@ -58,3 +57,4 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
     * Don't think this used to happen, maybe it happened when I moved the interaction funcions into the BN class
     * Maybe just go back to the old menu for adding nodes
     * Happening for edges too - new edges don't get arrows until you click on a node
+* [x] Fix bug with adding edges messing up simulation

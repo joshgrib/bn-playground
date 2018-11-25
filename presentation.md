@@ -1,5 +1,5 @@
 title: bn-play Presentation
-output: ./docs/presentation.html
+output: ./dist/presentation.html
 controls: true
 
 --
