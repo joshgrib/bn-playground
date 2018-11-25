@@ -1,0 +1,50 @@
+{
+  "name": "bn-playground",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "present-build": "cleaver presentation.md",
+    "deploy": "yarn build && yarn present-build && firebase deploy",
+    "present": "cleaver watch presentation.md"
+  },
+  "dependencies": {
+    "chart.js": "^2.7.3",
+    "cleaver": "^0.8.7",
+    "mermaid": "^8.0.0-rc.8",
+    "vue": "^2.5.17",
+    "vue-cytoscape": "^0.1.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.4",
+    "@vue/cli-plugin-eslint": "^3.0.4",
+    "@vue/cli-service": "^3.0.4",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
