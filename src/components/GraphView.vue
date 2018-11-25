@@ -22,70 +22,53 @@ import BayesianNetwork from '../classes/BayesianNetwork'
 import SelectedDetails from './SelectedDetails.vue'
 import SimulatorView from './SimulatorView.vue'
 
-/**
- * @summary Get the options object for VisJs
- * @param {BayesianNetwork} network - The network that the graph is showing
- * @param {function} redrawCb - A callback to redraw the graph
- */
-const visOptions = (network, redrawCb) => {
-  return {
-    layout: {
-      hierarchical: {
-        sortMethod: 'directed'
-      }
-    },
-    interaction: {
-      selectConnectedEdges: false
-    },
-    manipulation: {
-      addNode: (nodeData, callback) => {
-        let nodeName = prompt('Enter node name')
-        if(!nodeName) return
-        network.addNode(nodeName)
-        redrawCb()
-        callback(nodeData)
-      },
-      deleteNode: (nodeData, callback) => {
-        network.removeEdges(nodeData.edges)
-        network.removeNodes(nodeData.nodes)
-        redrawCb()
-        callback(nodeData)
-      },
-      addEdge: (edgeData, callback) => {
-        // eslint-disable-next-line
-        let edgeId = network.addEdge(edgeData.from, edgeData.to)
-        /*if(network.hasCycle) {
-          alert('This edge creates a cycle!')
-          network.removeEdge(edgeId)
-        }*/
-        redrawCb()
-        callback(edgeData)
-      },
-      deleteEdge: (edgeData, callback) => {
-        network.removeEdges(edgeData.edges)
-        redrawCb()
-        callback(edgeData)
-      },
-      editEdge: false
-    }
-  }
-}
+let bn = new BayesianNetwork()
+let a = bn.addNode('Alice')
+let b = bn.addNode('Bob') 
+let c = bn.addNode('Catherine')
+let d = bn.addNode('Dennis')
+let e = bn.addNode('Elise')
+let f = bn.addNode('Franklin')
+let g = bn.addNode('Gregory')
+let h = bn.addNode('Hannah')
+bn.addEdges([
+  [a.id, b.id], [b.id, c.id], [b.id, h.id], [c.id, e.id],
+  [c.id, f.id], [d.id, c.id], [e.id, f.id], [h.id, e.id],
+  [h.id, g.id], [g.id, f.id]
+])
+window.bn = bn
 
 export default {
   name: 'GraphView',
-  props: {
-    network: BayesianNetwork
-  },
   components: {
     SelectedDetails,
     SimulatorView
   },
   data: function () {
     return {
+      network: bn,
       selectedNodeId: undefined,
       vis: { //references for VisJs options needed to use their methods
         network: undefined,
-        nodes: undefined
+        nodes: undefined,
+        edges: undefined,
+        options: {
+          layout: {
+            hierarchical: {
+              sortMethod: 'directed'
+            }
+          },
+          interaction: {
+            selectConnectedEdges: false
+          },
+          manipulation: {
+            addNode: this.addNode,
+            deleteNode: this.deleteNode,
+            addEdge: this.addEdge,
+            deleteEdge: this.deleteEdge,
+            editEdge: false
+          }
+        }
       }
     }
   },
@@ -93,26 +76,45 @@ export default {
     // delay needed for `vis` to load
     setTimeout(this.redrawGraph, 250)
   },
-  updated: function () {
-    this.redrawGraph()
-  },
   methods: {
     redrawGraph: function () {
       let visFormatNetwork = this.network.visJs
-
-      let container = this.$refs.network
       /* eslint-disable no-undef */ //needed to use `vis`
       this.vis.nodes = new vis.DataSet(visFormatNetwork.nodes)
-      let data = {
-        nodes: this.vis.nodes,
-        edges: new vis.DataSet(visFormatNetwork.edges)
-      }
-      // The options contain the methods to editing nodes an edges
-      let options = visOptions(this.network, this.redrawGraph)
+      this.vis.edges = new vis.DataSet(visFormatNetwork.edges)
 
-      this.vis.network = new vis.Network(container, data, options)
+      let container = this.$refs.network
+      this.vis.network = new vis.Network(container, {
+        nodes: this.vis.nodes,
+        edges: this.vis.edges
+      }, this.vis.options)
       /* eslint-enable no-undef */
       this.vis.network.on('click', this.networkClick)
+    },
+    addNode: function (nodeData, callback) {
+      let nodeName = prompt('Enter node name')
+      if(!nodeName) return
+      let node = this.network.addNode(nodeName)
+      this.vis.nodes.add(node.visJs)
+      callback(nodeData)
+    },
+    deleteNode: function (nodeData, callback) {
+      this.network.removeNode(nodeData.nodes[0])
+      this.vis.nodes.remove({ id: nodeData.id })
+      this.selectedNodeId = undefined
+      callback(nodeData)
+    },
+    addEdge: function (edgeData, callback) {
+      this.network.addEdge(edgeData.from, edgeData.to)
+      //FIXME: the hard redraw is needed to avoid resetting the display options
+      this.redrawGraph()
+      callback(edgeData)
+    },
+    deleteEdge: function (edgeData, callback) {
+      this.network.removeEdges(edgeData.edges)
+      //FIXME: the hard redraw is needed to avoid resetting the display options
+      this.redrawGraph()
+      callback(edgeData)
     },
     networkClick: function (properties) {
       // options.interactions.selectConnectedEdges is false, so we can detect

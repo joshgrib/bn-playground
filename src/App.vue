@@ -1,3 +1,9 @@
+<!--
+This wrapper files adds the GraphView, which has all the 
+application code, this file is used to set up the initial
+demo network, and in the future could perhaps contain
+components for importing and exporting networks
+-->
 <template>
   <div id="app">
     <nav id="nav-header" class="navbar navbar-dark bg-dark">
@@ -5,7 +11,7 @@
     </nav>
     <div id="app-container" class="container-fluid">
       <section class="row">
-        <GraphView class="col-12" v-bind:network="network"/>
+        <GraphView class="col-12"/>
       </section>
     </div>
   </div>
@@ -13,34 +19,11 @@
 
 <script>
 import GraphView from './components/GraphView.vue'
-import BayesianNetwork from './classes/BayesianNetwork'
-
-let bn = new BayesianNetwork()
-
-let a = bn.addNode('Alice')
-let b = bn.addNode('Bob') 
-let c = bn.addNode('Catherine')
-let d = bn.addNode('Dennis')
-let e = bn.addNode('Elise')
-let f = bn.addNode('Franklin')
-let g = bn.addNode('Gregory')
-let h = bn.addNode('Hannah')
-bn.addEdges([
-  [a.id, b.id], [b.id, c.id], [b.id, h.id], [c.id, e.id],
-  [c.id, f.id], [d.id, c.id], [e.id, f.id], [h.id, e.id],
-  [h.id, g.id], [g.id, f.id]
-])
-window.bn = bn
 
 export default {
   name: 'app',
   components: {
     GraphView
-  },
-  data: () => {
-    return {
-      network: bn
-    }
   }
 }
 </script>

@@ -18,11 +18,16 @@ class BNode {
         this.name = name
         this.network = network
         this.highlighted = false
-        this.pTable = {
-            '': 0.5
-        }
+        this.pTable = {}
         this.inDoMode = false
         this.backupPTable = {}
+
+        for(let k of [...[0, 1, 2, 3].map(v=>getPossibilityTable(v))]) {
+            for(let combo of k){
+                let comboKey = combo.join('')
+                this.pTable[comboKey] = 0.5
+            }
+        }
     }
 
     /**
@@ -67,11 +72,9 @@ class BNode {
      * @summary Update the probability table values after adding new parent nodes
      */
     updatePTable () {
-        let newPTable = {}
         for(let c of getPossibilityTable(this.parents.length)){
-            newPTable[c.join('')] = 0.5
+            this.pTable [c.join('')] = 0.5
         }
-        this.pTable = newPTable
     }
 
     /**
@@ -222,7 +225,15 @@ export default class BayesianNetwork {
         if (newNodes.length !== this.nodes.length-1) throw `Unable to find node with id ${id}`
         this.nodes = newNodes
         this.edges = this.edges.filter(edge => { 
-            return edge.to.id !== id && edge.from.id !== id
+            if (edge.to.id === id) {
+                edge.from.updatePTable()
+                return false
+            }
+            if (edge.from.id === id) {
+                edge.to.updatePTable()
+                return false
+            }
+            return true
         })
     }
     /**
@@ -343,6 +354,13 @@ export default class BayesianNetwork {
      * @summary Run a simulation on the network
      */
     runSimulation () {
+        //TODO: clean up edges before running in case there's any left over
+        let nodeIds = this.nodes.map(n => n.id)
+        this.edges = this.edges.filter(e => {
+            if(!nodeIds.includes(e.to.id)) return false
+            if(!nodeIds.includes(e.from.id)) return false
+            return true
+        })
         // clear out all values
         this.nodes.map(n => n.value = undefined)
         const setNodeValue = node => {
