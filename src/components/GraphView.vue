@@ -76,10 +76,6 @@ export default {
     // delay needed for `vis` to load
     setTimeout(this.redrawGraph, 250)
   },
-  updated: function () {
-    //console.log('updated')
-    //this.redrawGraph()
-  },
   methods: {
     redrawGraph: function () {
       let visFormatNetwork = this.network.visJs
@@ -98,7 +94,6 @@ export default {
     addNode: function (nodeData, callback) {
       let nodeName = prompt('Enter node name')
       if(!nodeName) return
-      this.$emit('add-node', nodeName)
       let node = this.network.addNode(nodeName)
       this.vis.nodes.add(node.visJs)
       callback(nodeData)

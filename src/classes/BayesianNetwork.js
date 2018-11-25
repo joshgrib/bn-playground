@@ -22,7 +22,7 @@ class BNode {
         this.inDoMode = false
         this.backupPTable = {}
 
-        for(let k of [...[1, 2, 3].map(v=>getPossibilityTable(v))]) {
+        for(let k of [...[0, 1, 2, 3].map(v=>getPossibilityTable(v))]) {
             for(let combo of k){
                 let comboKey = combo.join('')
                 this.pTable[comboKey] = 0.5
@@ -72,13 +72,8 @@ class BNode {
      * @summary Update the probability table values after adding new parent nodes
      */
     updatePTable () {
-        let newPTable = {}
         for(let c of getPossibilityTable(this.parents.length)){
-            newPTable[c.join('')] = 0.5
-        }
-        this.pTable = newPTable
-        for(let key in this.pTable){
-            this.pTable[key] = 0.5
+            this.pTable [c.join('')] = 0.5
         }
     }
 
@@ -359,6 +354,13 @@ export default class BayesianNetwork {
      * @summary Run a simulation on the network
      */
     runSimulation () {
+        //TODO: clean up edges before running in case there's any left over
+        let nodeIds = this.nodes.map(n => n.id)
+        this.edges = this.edges.filter(e => {
+            if(!nodeIds.includes(e.to.id)) return false
+            if(!nodeIds.includes(e.from.id)) return false
+            return true
+        })
         // clear out all values
         this.nodes.map(n => n.value = undefined)
         const setNodeValue = node => {

@@ -24,6 +24,7 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * [/] Write paper
 * [_] Make presentation
 
+* [_] Fix bug with adding edges messing up simulation
 * [_] Add title tooltips to explain things, expecially the CPT
 * [_] Show realtime simulation with dashed/colored edges
 
