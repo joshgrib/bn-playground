@@ -8,7 +8,7 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * `vue ui` - Start the UI and use it to run tasks
 * `yarn` - Project setup, install dependencies
 * `yarn serve` - Compiles and hot-reloads for development
-* `yarn build` - Compiles and minifies for production, generating static site files in `./dist`
+* `yarn build` - Compiles and minifies for production, generating static site files in `./docs`
 * `firebase deploy` - Deploy production files to Firebase
 * `yarn present` - Use [cleaver](https://github.com/jdan/cleaver) to work on the presentation and watch for changes
 
