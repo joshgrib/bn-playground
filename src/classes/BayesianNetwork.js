@@ -18,11 +18,16 @@ class BNode {
         this.name = name
         this.network = network
         this.highlighted = false
-        this.pTable = {
-            '': 0.5
-        }
+        this.pTable = {}
         this.inDoMode = false
         this.backupPTable = {}
+
+        for(let k of [...[1, 2, 3].map(v=>getPossibilityTable(v))]) {
+            for(let combo of k){
+                let comboKey = combo.join('')
+                this.pTable[comboKey] = 0.5
+            }
+        }
     }
 
     /**
@@ -72,6 +77,9 @@ class BNode {
             newPTable[c.join('')] = 0.5
         }
         this.pTable = newPTable
+        for(let key in this.pTable){
+            this.pTable[key] = 0.5
+        }
     }
 
     /**
@@ -222,7 +230,15 @@ export default class BayesianNetwork {
         if (newNodes.length !== this.nodes.length-1) throw `Unable to find node with id ${id}`
         this.nodes = newNodes
         this.edges = this.edges.filter(edge => { 
-            return edge.to.id !== id && edge.from.id !== id
+            if (edge.to.id === id) {
+                edge.from.updatePTable()
+                return false
+            }
+            if (edge.from.id === id) {
+                edge.to.updatePTable()
+                return false
+            }
+            return true
         })
     }
     /**
