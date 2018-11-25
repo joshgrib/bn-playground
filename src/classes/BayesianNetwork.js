@@ -218,7 +218,12 @@ export default class BayesianNetwork {
      * @param {number} id - The ID of a node in the network
      */
     removeNode (id) {
-        this.nodes = this.nodes.filter(node => { return node.id != id })
+        let newNodes = this.nodes.filter(node => { return node.id !== id })
+        if (newNodes.length !== this.nodes.length-1) throw `Unable to find node with id ${id}`
+        this.nodes = newNodes
+        this.edges = this.edges.filter(edge => { 
+            return edge.to.id !== id && edge.from.id !== id
+        })
     }
     /**
      * @summary Remove multiple nodes from the network by ID
