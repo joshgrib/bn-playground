@@ -39,6 +39,7 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * [_] Export probability table CSV
 * [_] Edit node name - click pencil icon to change title to input, bind to data so it changes as you type
 * [_] Change the color of a node?
+* [_] Learn network structure from data
 
 ## Done
 * [x] Show BN visually

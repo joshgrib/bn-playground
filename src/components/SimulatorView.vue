@@ -13,7 +13,7 @@
       <span class="input-group-text" id="basic-addon1">Iterations:</span>
     </div>
     <input v-model="simulationCount"
-      type="number" class="form-control" max="1000" min="1" step="25"/>
+      type="number" class="form-control" max="10000" min="1" step="25"/>
   </div>
   <button class="btn btn-primary" @click="runSimulation()">Run</button>
 </section>
