@@ -35,21 +35,39 @@ The section on *Technologies Used* discussing how various tools aid in these imp
 Reactive for web/mobile, offline after initial download, SPA so no need to reload page, simple distribution through static files, easy to wrap in electron as a desktop app in the future, modern web design for simple future development.
 
 ### Component Overview
-![Full app initial view](./public/app-view-01.png)
-Fig 2.01
+>![Full app initial view](./public/app-view-01.png)
+>Fig 2.01
 
 Figure 2.01 shows the desktop layout of the application, the mobile version will be used for all other images because the compact view will be better in this format. Essentially the two columns, one with the network and the other with the text, become a single column with the network on top.
 
 #### Network Viewer
 
-![Basic network](./public/network-view-01.png)
-Fig 2.02
-
 Figure 2.02 shows the Network Viewer, which displays the bayesian network to the user, and provides an interface to modify the structure. The inidividual nodes are displayed as names inside ovals, with arrows connecting each one, following the standard format for visualizing Bayesian Networks.
+
+>![Basic network](./public/network-view-01.png)
+>Fig 2.02
 
 Show selected node
 
 ##### Modifying Nodes and Edges
+
+The "Edit" button in figure 2.02 can be clicked to reveal the options in figure 2.03
+
+>![Add node and edge menu](./public/add-node-and-edge-menu.png)
+>Figure 2.03
+
+If the user clicks "Add Node", they are prompted to choose a location for the new node, and enter a name for the node, as shown in figure 2.04.
+
+>![Node name prompt](./public/node-name-prompt.png)
+>Figure 2.04
+
+>![New node added](./public/new-node-added.png)
+>![Adding new edge](./public/adding-edge.png)
+>![New edge added](./public/new-edge-added.png)
+>![No node selected](./public/no-node-selected.png)
+>![Node selected](./public/node-selected.png)>
+
+
 
 Show the add node and add edge view, then for selected nodes and edges to delete
 
