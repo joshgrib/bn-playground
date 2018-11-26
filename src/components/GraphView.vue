@@ -25,12 +25,12 @@ import SimulatorView from './SimulatorView.vue'
 let bn = new BayesianNetwork()
 let a = bn.addNode('Alice')
 let b = bn.addNode('Bob') 
-let c = bn.addNode('Catherine')
+let c = bn.addNode('Cathy')
 let d = bn.addNode('Dennis')
-let e = bn.addNode('Elise')
-let f = bn.addNode('Franklin')
-let g = bn.addNode('Gregory')
-let h = bn.addNode('Hannah')
+let e = bn.addNode('Edith')
+let f = bn.addNode('Frank')
+let g = bn.addNode('Georgia')
+let h = bn.addNode('Harold')
 bn.addEdges([
   [a.id, b.id], [b.id, c.id], [b.id, h.id], [c.id, e.id],
   [c.id, f.id], [d.id, c.id], [e.id, f.id], [h.id, e.id],
@@ -55,7 +55,10 @@ export default {
         options: {
           layout: {
             hierarchical: {
-              sortMethod: 'directed'
+              sortMethod: 'directed',
+              treeSpacing: 100,
+              nodeSpacing: 150,
+              levelSeparation: 125
             }
           },
           interaction: {
