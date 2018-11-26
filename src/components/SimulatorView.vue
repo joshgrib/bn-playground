@@ -1,6 +1,13 @@
 <template>
 <section>
   <header>Simulation</header>
+  <article>
+    <p v-if="results===undefined">Run a simulation to view results</p>
+    <div v-else>
+      <p>Results:</p>
+    </div>
+    <canvas ref="histogram" height="0"></canvas>
+  </article>
   <div class="input-group">
     <div class="input-group-append">
       <span class="input-group-text" id="basic-addon1">Iterations:</span>
@@ -9,13 +16,6 @@
       type="number" class="form-control" max="1000" min="1" step="25"/>
   </div>
   <button class="btn btn-primary" @click="runSimulation()">Run</button>
-  <article>
-    <p v-if="results===undefined">Run a simulation to view results</p>
-    <div v-else>
-      <p>Results:</p>
-    </div>
-    <canvas ref="histogram"></canvas>
-  </article>
 </section>
 </template>
 
@@ -42,7 +42,8 @@ export default {
     return {
       simulationCount: 100,
       results: undefined,
-      histogram: undefined
+      histogram: undefined,
+      canvasHeight: 0
     }
   },
   methods: {
@@ -61,6 +62,7 @@ export default {
           }
         }
       }
+      this.$refs.histogram.height = 150
       this.redrawGraph()
     },
     redrawGraph: function () {
@@ -104,5 +106,4 @@ export default {
 
 <style scoped>
 header { font-size: 1.5em; }
-canvas { height: 400px; }
 </style>
