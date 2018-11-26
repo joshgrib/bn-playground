@@ -5863,6 +5863,11 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
   integrity sha512-lQe48YPsMJAig+yngZ87Lus+NF+3mtu7DVOBu6b/gHO1YpKwIj5AWjZ/TOS7i46HD/UixzWb1zeWDZfGZ3iYcg==
 
+pandoc@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/pandoc/-/pandoc-0.2.0.tgz#897cf45d11e72ef6c5d7de667a7c30336c5d361b"
+  integrity sha1-iXz0XRHnLvbF195menwwM2xdNhs=
+
 parallel-transform@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.1.0.tgz#d410f065b05da23081fcd10f28854c29bda33b06"
@@ -5982,6 +5987,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+pdflatex@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/pdflatex/-/pdflatex-0.0.1.tgz#00d244d021863d7f3bfd58ffc263ed23f85f1f7f"
+  integrity sha1-ANJE0CGGPX87/Vj/wmPtI/hfH38=
 
 performance-now@^2.1.0:
   version "2.1.0"

@@ -8,12 +8,14 @@
     "lint": "vue-cli-service lint",
     "present-build": "cleaver presentation.md",
     "deploy": "yarn build && yarn present-build && firebase deploy",
-    "present": "cleaver watch presentation.md"
+    "present": "cleaver watch presentation.md",
+    "report": "pandoc --variable classoption=twocolumn --variable papersize=a4paper -s report.md -o report.pdf"
   },
   "dependencies": {
     "chart.js": "^2.7.3",
     "cleaver": "^0.8.7",
     "mermaid": "^8.0.0-rc.8",
+    "pandoc": "^0.2.0",
     "vue": "^2.5.17",
     "vue-cytoscape": "^0.1.2"
   },
