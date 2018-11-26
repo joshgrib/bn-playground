@@ -31,7 +31,7 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 
 * [_] Show realtime simulation with dashed/colored edges
 * [_] Add automated testing
-* [_] Wrap in electron
+* [_] Wrap in electron to deploy as a desktop app
 * [_] Detect cycle in graph
 * [_] Show conditional independencies
 * [_] Toggle hierarchical layout
@@ -60,3 +60,4 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
     * Happening for edges too - new edges don't get arrows until you click on a node
 * [x] Fix bug with adding edges messing up simulation
 * [x] Made node color a different blue when in do() mode
+* [x] Reveal histogram element dynamically after getting results

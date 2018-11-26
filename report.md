@@ -18,12 +18,19 @@ TODO:
 * [_] Submit to canvas
 -->
 
-## Abstract
-`bn-play` is a tool for learning about Bayesian Networks through visualization and interface. The main focus of the project is an intuitive and explanatory interface. Modern web app tools are used to create an interface that is linked to the underlying structures, simplifying the design, helping ensure that the user is seeing data in the right context across components, aiding in layout, and assisting with browser compatability. The simulation component is designed to be simple, robust, and expandable.
+## 0. Abstract
+
+`bn-play` is a tool for learning about Bayesian Networks through visualization and interface. The main focus of the project is an intuitive and explanatory interface. Modern web app tools are used to create an interface that is linked to the underlying structures, simplifying the design, helping ensure that the user is seeing data in the right context across components, aiding in layout, and assisting with browser compatability. The simulation component is designed to be simple, robust, and expandable. The resulting project achieved all the critical features listed in the proposal as well as some stretch goals, while also being poised for future development.
 
 ## Introduction
 
+The main goal of this project is to create an accessible tool for improving our knowledge and understanding of Bayesian Networks. This was the driving motivation behind the design decisions and implementation details. Deployment as a web app increases the potential reach to anyone with a phone, laptop, or tablet, and limited network connectivity. Further, it allows for simple and rapid interface development with modern tooling, resulting in flexible and optimized deployments.
+
 ## Interface Design
+
+As far as a user is concerned, the interface is the product. We often see products lose to a competitor that offers the same or less functionality, but with a better interface, such as Apple with the iPhone. A sizable amount of effort went into developing the interface to create a unified experience. This is accomplished using complex strategies like data binding across components to ensure that changes made in one location are reflected across the application, simple strategies like the presence of tooltips to explain the meaning behind different views, and stuff in between such as default values that prompt user interaction.
+
+The section on *Technologies Used* discussing how various tools aid in these implementations.
 
 Reactive for web/mobile, offline after initial download, SPA so no need to reload page, simple distribution through static files, easy to wrap in electron as a desktop app in the future, modern web design for simple future development.
 
@@ -34,6 +41,10 @@ Reactive for web/mobile, offline after initial download, SPA so no need to reloa
 
 ![Basic network](./public/network-view-01.png)
 
+##### Modifying Nodes and Edges
+
+This sidesteps the concern of how to build the BN from your data, leaving that problem to the user
+
 #### Selected Node Details
 
 #### Conditional Probability Table
@@ -41,6 +52,8 @@ Reactive for web/mobile, offline after initial download, SPA so no need to reloa
 #### Simulator
 
 ### Technologies Used
+
+Focus on how it's used to improve the interface
 
 #### Reactive data system and data binding
 
@@ -54,6 +67,24 @@ Firebase - simple to use, free for 10GB/month
 * 717 KB total = 0.000717GB = 13947 initial downloads
 * ~900B after caching = ~12M redownloads
 > write out the equation for how many users it can support
+
+After initial download:
+* Offline
+* All storage is client-side
+* No network connection needed
+ 
+## Desired Use and Impact
+
+### Learning
+
+### Simple simulations
+
+### Additional functionality
+
+## Future Work
+
+Electron so you can be fully offline after the initial download
+> Fill in from the todo in the readme
 
 ## Important Data Structures and Algorithms
 
@@ -69,16 +100,8 @@ Firebase - simple to use, free for 10GB/month
 
 > Fill in psuedo-code
 
-## Desired Use and Impact
-
-### Learning
-
-### Simple simulations
-
-### Additional functionality
-
-## Future Work
-
-> Fill in from the todo in the readme
-
 ## References
+
+## Closing Notes
+
+Report format inspiration mainly taken from https://www.usenix.org/legacy/event/sec08/tech/full_papers/adida/adida.pdf, as it is a research paper discussing a project where both the interface and features of the implementation would be of concern
