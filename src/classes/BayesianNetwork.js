@@ -1,8 +1,11 @@
 import { getPossibilityTable } from './Utilities'
 
-const borderColor = 'black'
-const defaultColor = 'lightblue'
-const highlightColor = 'orange'
+const COLORS = {
+    border: 'black',
+    default: 'lightblue',
+    highlight: 'orange',
+    doMode: 'aqua'
+}
 
 /**
  * @summary A node in the network
@@ -90,13 +93,19 @@ class BNode {
         }
     }
 
+    get color () {
+        if (this.highlighted) return COLORS.highlight
+        if (this.inDoMode) return COLORS.doMode
+        return COLORS.default
+    }
+
     get visJs () {
         return {
             id: this.id,
             label: this.name,
             color: {
-                background: this.highlighted ? highlightColor : defaultColor,
-                border: borderColor
+                background: this.color,
+                border: COLORS.border
             }
         }
     }
@@ -131,7 +140,7 @@ class BEdge {
             arrows: 'to',
             width: 1,
             color: {
-                color: borderColor,
+                color: COLORS.border,
                 inherit: false
             },
             dashes: this.to.inDoMode

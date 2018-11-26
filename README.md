@@ -25,11 +25,12 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * [_] Make presentation
 
 * [_] Add title tooltips to explain things, expecially the CPT
-* [_] Show realtime simulation with dashed/colored edges
 
 * [_] Move to new repo
 * [_] Host on Github pages
 
+* [_] Show realtime simulation with dashed/colored edges
+* [_] Add automated testing
 * [_] Wrap in electron
 * [_] Detect cycle in graph
 * [_] Show conditional independencies
@@ -58,3 +59,4 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
     * Maybe just go back to the old menu for adding nodes
     * Happening for edges too - new edges don't get arrows until you click on a node
 * [x] Fix bug with adding edges messing up simulation
+* [x] Made node color a different blue when in do() mode
