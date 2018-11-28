@@ -152,32 +152,28 @@ The main desire for this project is for it to be used to help people learn how B
 
 ### Limitations
 
-This solution has a number of limitations that rule it out from key use cases.
-There could be addressed through the items listed in the *Future Work* section.
-Need to know structure
-Only English
-Only online
+This solution has a number of limitations that rule it out from key use cases. Primarily, there is no way to export and import the network, so there is no way to work across multiple browser sessions, or even page reloads. This ephemeral quality reduces the uses to cases where the details of the network are well known and can be easily reconstructed, and venturing away from the initial network involved removing all the nodes. Second, it is unable to propose a network structure from the data, which limits the use to situations where the network structure is already known or is inconsequential. While this could be written off due to the focus on being a lower level educational tool, it could then also be used for learning that aspect of Bayesian Networks. Lastly, limiting the accessiblilty of the application, it is only available in English, and with network connectivity for the initial page load. These and others are further discussed in the *Future Work* section.
 
 ## 4. Future Work
 
 Like any software project, this will likely never feel fully complete, and there is a lengthy list of potential future features. Those that are concerned with expansion of functionality rather than internal improvements are listed below.
 
 **Network creation:**
-* Detect cycle in graph
-* Import/Export graph (add method in BN class)
-* Toggle hierarchical layout
-* Learn network structure from data
+* Detect cycle in graph - it would be useful to note when a cycle is created and epxlain how that affects the network. This would be a fairly straightforward addition by using an established cycle detection algorithm and displaying an alert to the user
+* Import/Export graph - this would allow work across browser sessions and sharing of networks with other users, and removing the need to clear out the initial network before working with a different one.
+* Toggle hierarchical layout - the hierarchical layout was used to simplify the issue of creating the node spacing. Vis.js uses a physics engine to determine where the nodes are displayed, and there were consistently better results over the random layout. This layout would be limiting for more dense or interconnected networks, in which case the random mode might have a better change of choosing a good layout. One hurdle for this task would be saving the random seed that is linked to a suitable random layout for a given network, which should be part of the export for a consistent layout across sessions.
+* Learn network structure from data - this would likely be the most complicated feature to add, but it would also add the most additional value, converting this from an educational tools into a more functional utility.
 
 **Node information:**
-* Show conditional independencies
-* Export probability table
-* Edit node name or color
-* Translations to other languages
+* Show conditional independencies - being able to see a list of conditional independencies, or to check any that the user wants to input, would add additional education value, showing another key feature of Bayesian Networks.
+* Export probability table - along with the network structure export, probability tables are another key place the user would make changes that should be saved across sessions and used to recreate the network.
+* Edit node name or color - it would be convenient to be able to rename a node instead of having to remove and recreate it, and choosing a color adds a fun interaction that enhances the experience.
+* Translation to other languages - the whole tool is only currently accessible to English speakers, so adding more language options would increase the potential reach of the application to many people in other countries.
 
 **Simulation:**
-* Show realtime simulation with dashed/colored edges
-* Wrap in electron to deploy as a desktop app
-* Export simulation results
+* Show simulation visualization on the network - being able to see individual simulations happen at a slower pace would allow the user to further understand how the histogram is generated, but would require the speed of the simulation to be greatly reduced and would make any large number of iterations unreasonable. 
+* Wrap in electron to deploy as a desktop app - this would let the application be installed on a laptop or phone as an app on the desktop, which completely removes the network connectivity requirements, allows for more intense calculations, and would improve the experience of exporting and importing data.
+* Export simulation results - being able to export the results of a simulation as a table showing the individual iterations would allow for greater and more varied analysis than simple the histogram provided.
 
 
 ## 5. Important Data Structures and Algorithms
