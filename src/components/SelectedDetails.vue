@@ -61,7 +61,7 @@ and doing a do() on the node to see the effects
       </div>
       <div class="col-md-8 col-sm-12">
         <CondProbTable :network="network" :nodeId="this.node.id" />
-        <button class="btn btn-secondary" @click="doOnNode" :title="doBtnTitle">
+        <button class="btn btn-primary" @click="doOnNode" :title="doBtnTitle">
           {{node.inDoMode ? 'un-do()' : 'do()'}}
         </button>
       </div>
