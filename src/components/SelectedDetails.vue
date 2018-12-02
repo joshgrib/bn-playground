@@ -9,7 +9,7 @@ and doing a do() on the node to see the effects
       <p>Select a node to view the details</p>
     </article>
     <article v-else class="row">
-      <div class="col-md-4 col-sm-12">
+      <div class="col-12">
         <header @mouseover="$emit('highlight-nodes', [node])"
           @mouseleave="$emit('clear-highlights')">
           {{node.name}}
@@ -59,7 +59,7 @@ and doing a do() on the node to see the effects
           </li>
         </ul>
       </div>
-      <div class="col-md-8 col-sm-12">
+      <div class="col-12">
         <CondProbTable :network="network" :nodeId="this.node.id" />
         <button class="btn btn-primary" @click="doOnNode" :title="doBtnTitle">
           {{node.inDoMode ? 'un-do()' : 'do()'}}
