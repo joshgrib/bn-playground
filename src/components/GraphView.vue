@@ -124,6 +124,8 @@ export default {
       // node clicks from edge clicks by seeing if there are any nodes
       if (properties.nodes.length > 0) {
         this.selectedNodeId = properties.nodes[0]
+      } else {
+        this.selectedNodeId = undefined
       }
     },
     highlightNodes: function (nodeList) {
