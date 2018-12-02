@@ -15,7 +15,10 @@
     <input v-model="simulationCount"
       type="number" class="form-control" max="10000" min="1" step="20"/>
   </div>
-  <button class="btn btn-primary" @click="runSimulation()">Run</button>
+  <button class="btn btn-primary" 
+    @click="runSimulation()" :title="runHelpText">
+    {{ (results===undefined) ? 'Run' : 'Re-run'}}
+  </button>
 </section>
 </template>
 
@@ -99,6 +102,9 @@ export default {
         })
       }
       return formatted
+    },
+    runHelpText () {
+      return `Run ${this.simulationCount} simulations with the network and see the results`
     }
   }
 }
