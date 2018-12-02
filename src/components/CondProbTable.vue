@@ -7,8 +7,8 @@ and allows editing of the conditional probabilities
     <header>Conditional Probability Table:</header>
     <table>
       <tr>
-        <th v-for="header in tableHeaders" :key="header">
-          <span>{{header}}</span>
+        <th v-for="(header, idx) in tableHeaders" :key="header">
+          <span :title="headerHelpText[idx]">{{header}}</span>
         </th>
       </tr>
       <tr v-for="row in tableData" :key="row.join('')">
@@ -41,6 +41,20 @@ export default {
     },
     tableHeaders: function () {
       return this.node.cpTable.headers
+    },
+    headerHelpText () {
+      let headers = this.tableHeaders
+      let helpText = headers.map((text, idx, totalArray) => {
+        let help = undefined
+        if (idx !== totalArray.length-1) {
+          help = `The possible states for ${text}`
+        } else {
+          let parentList = this.node.parents.map(p => p.name).join(',')
+          help = `The probability of ${this.node.name} being true given the states of ${parentList}`
+        }
+        return help
+      })
+      return helpText
     },
     tableData: function () {
       return this.node.cpTable.combos

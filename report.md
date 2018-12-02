@@ -16,6 +16,8 @@ TODO:
 * [x] Finish outline
 * [_] Put name somewhere
 * [/] Fill in sections
+* [_] Add in section about the importance of understanding statistics and causality
+* [_] Add future goal listing out other aspects of casuality that there could be visualizations for
 * [_] Format references
 * [_] Format document as two-column pdf
     * [_] Review and update formatting in general
