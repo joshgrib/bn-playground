@@ -49,7 +49,7 @@ export default {
         if (idx !== totalArray.length-1) {
           help = `The possible states for ${text}`
         } else {
-          let parentList = this.node.parents.map(p => p.name).join(',')
+          let parentList = this.node.parents.map(p => p.name).join(', ')
           help = `The probability of ${this.node.name} being true given the states of ${parentList}`
         }
         return help

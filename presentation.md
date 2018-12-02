@@ -33,4 +33,5 @@ What it can't show with causality
 ### Possible future work
 
 * Import/export
+* d-seperation, d-connection
 * More

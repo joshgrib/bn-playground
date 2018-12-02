@@ -52,6 +52,38 @@ class BNode {
         return outgoingEdges.map(edge => edge.to)
     }
     /**
+     * @summary Get the list of descendant nodes
+     */
+    get descendants () {
+        let descSet = new Set()
+        const dfsAddToSet = (node) => {
+            node.children.map(child => {
+                dfsAddToSet(child)
+            })
+            descSet.add(node)
+        }
+        dfsAddToSet(this)
+        descSet.delete(this) // remove this node
+        return [...descSet]
+    }
+    get nonDescendants () {
+        return this.network.nodes.filter(n => {
+            return !this.descendants.includes(n) && n !== this
+        })
+    }
+    get ancestors () {
+        let resultSet = new Set()
+        const dfsAddToSet = (node) => {
+            node.parents.map(child => {
+                dfsAddToSet(child)
+            })
+            resultSet.add(node)
+        }
+        dfsAddToSet(this)
+        resultSet.delete(this) // remove this node
+        return [...resultSet]
+    }
+    /**
      * @summary Check if the node is a collider
      */
     get isCollider () {
