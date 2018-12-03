@@ -50,7 +50,10 @@ export default {
           help = `The possible states for ${text}`
         } else {
           let parentList = this.node.parents.map(p => p.name).join(', ')
-          help = `The probability of ${this.node.name} being true given the states of ${parentList}`
+          help = `The probability of ${this.node.name} being true`
+          if (parentList.length !== 0) {
+            help = `${help} given the states of ${parentList}`
+          }
         }
         return help
       })
