@@ -12,6 +12,12 @@ controls: true
 * [_] Practice timing
 
 --
+### Motivation
+* Value of statistical and causal knowledge
+* Ease of access of the web
+* Simple and fast interface
+
+--
 ### Why should I care?
 * Philosophical basis - causality is important to know how to intervene
 * People not understanding statistics seems to lead to a lot of drama and confusion
@@ -30,7 +36,7 @@ controls: true
 #### Initial attempt
 <img src="https://i.gyazo.com/88b2636ffd1f33d2140762ce5676b758.png" width="50%"/>
 * Seemed simple
-* Looked usage for DBN too
+* Looked useful for DBN in the future
 * Intermediate language got complicated
 
 --
@@ -44,6 +50,7 @@ controls: true
 #### Basic outline
 <img src="https://i.gyazo.com/2f4a60dc0b07af5c24f7dce0f1a211a0.png" width="20%">
 <img src="https://i.gyazo.com/a2ae8e6bfaaf353d2d1c5ed890f00637.png" width="50%">
+
 --
 ##### Result
 <img src="https://i.gyazo.com/02c6647e576354a3464fa2724742b74c.png" width="20%">
@@ -51,11 +58,27 @@ controls: true
 <img src="https://i.gyazo.com/a8a3d0eeb3b8d56a2685bb9a506e7fa1.png" width="20%">
 
 --
+#### Tooltip content
+<img src="https://i.gyazo.com/c1ad8adefbc6b9b8d5a98c44f658ff2a.png" height="500px">
+
+--
+### Technology Used
+* Vue - frontend components, templating, data binding
+* Bootstrap, Webpack, Browserify
+* Vis.js - visualization for the network
+* Chart.js - histogram visualization
+* Firebase - hosting, free until ~14k initial downloads per month
+
+--
+### Demo
 <iframe src="https://bn-play.firebaseapp.com/" width="100%" height="100%"></iframe>
 
 --
 ### Limitations
-What it can't show with causality
+* Teaches aspects of causality, doesn't identify it
+    * Con: Isolated from the data
+    * Pro: Avoids many concerns
+* Doesn't identify 
 
 --
 ### Possible future work
@@ -63,6 +86,10 @@ What it can't show with causality
 * Import/export
 * d-seperation, d-connection
 * More
+
+--
+#### Possible future work (cont)
+
 
 <style>
 .slide-content {
