@@ -4,6 +4,8 @@ date: "November 2018"
 author: "Josh Gribbon, Stevens Institute of Technology"
 ---
 
+<h1>This has been moved to Google Drive, below is the content from before the conversion</h1>
+
 <h1>bn-play: A tool for learning Bayesian Networks through manipulation and simulation</h1>
 <!-- Used h1 here so the line would be left out of the TOC -->
 

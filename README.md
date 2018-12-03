@@ -10,7 +10,7 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * `yarn serve` - Compiles and hot-reloads for development
 * `yarn build` - Compiles and minifies for production, generating static site files in `./dist`
 * `firebase deploy` - Deploy production files to Firebase
-* `yarn present` - Use [cleaver](https://github.com/jdan/cleaver) to work on the presentation and watch for changes
+* `yarn present` - Use [cleaver](https://github.com/jdan/cleaver) to work on the presentation and watch for changes. The output file is `dist/presentation.html`, which is also deployed to Firebase
 
 ## Reference
 * [BN Slides](http://skleinberg.org/teaching/CI18/lecture4.pdf)
@@ -18,16 +18,9 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * [Vis.js](http://visjs.org/docs/network/)
 * [Chart.js](https://www.chartjs.org/)
 
-* [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) - to make a public repo for this project
-
 ## Todo
 * [/] Write paper
-* [_] Make presentation
-
-* [_] Add title tooltips to explain things, expecially the CPT
-
-* [_] Move to new repo
-* [_] Host on Github pages
+* [/] Make presentation
 
 * [_] Show realtime simulation with dashed/colored edges
 * [_] Add automated testing
@@ -62,3 +55,6 @@ A tool for building Bayesian Networks(BNs), visualizing the probabilities, runni
 * [x] Fix bug with adding edges messing up simulation
 * [x] Made node color a different blue when in do() mode
 * [x] Reveal histogram element dynamically after getting results
+* [x] Add title tooltips to explain things, expecially the CPT
+* [x] Move to new repo
+* [x] Host on Github pages - doesn't work well

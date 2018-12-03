@@ -3,13 +3,13 @@ output: ./dist/presentation.html
 controls: true
 
 --
-# bn-play
-## A tool for learning and interfacing with Bayesian Networks
-> Josh Gribbon
-
---
 ### TODO
 * [_] Practice timing
+
+--
+# `bn-play`
+## A tool for learning and interfacing with Bayesian Networks
+> Josh Gribbon
 
 --
 ### Motivation
@@ -31,16 +31,21 @@ controls: true
 --
 ### Interface
 * Super important!
+* Clear information
+* Coordinated data
+* Adaptive layout
+* Useful visualizations
+* Prompting and guiding interaction
 
 --
-#### Initial attempt
+#### Network visualization - `mermaid.js`
 <img src="https://i.gyazo.com/88b2636ffd1f33d2140762ce5676b758.png" width="50%"/>
 * Seemed simple
 * Looked useful for DBN in the future
 * Intermediate language got complicated
 
 --
-#### Trying a new option
+#### Trying a new option - `vis.js`
 <img src="https://i.gyazo.com/0fadd9e3bb04ea9f14eb8b1d39e7f1b1.png" width="50%"/>
 * More flexible API
 * Better options for expansion
@@ -60,35 +65,52 @@ controls: true
 --
 #### Tooltip content
 <img src="https://i.gyazo.com/c1ad8adefbc6b9b8d5a98c44f658ff2a.png" height="500px">
+Provide contextual assistance and explanation
 
 --
 ### Technology Used
-* Vue - frontend components, templating, data binding
-* Bootstrap, Webpack, Browserify
-* Vis.js - visualization for the network
-* Chart.js - histogram visualization
-* Firebase - hosting, free until ~14k initial downloads per month
+* `Vue.js` - frontend components, templating, data binding
+* `Bootstrap`, `Webpack`, `Browserify`
+* `Vis.js` - visualization for the network
+* `Chart.js` - histogram visualization
+* `Firebase` - hosting, free until ~14k initial downloads per month
 
 --
 ### Demo
 <iframe src="https://bn-play.firebaseapp.com/" width="100%" height="100%"></iframe>
 
 --
+### Achievements
+* Simple site to create BNs
+* Change the structure
+* Change the CPT for a node
+* `do()` on a node
+* Run simulations
+* Visual and textual information and guidance
+
+--
 ### Limitations
 * Teaches aspects of causality, doesn't identify it
     * Con: Isolated from the data
     * Pro: Avoids many concerns
-* Doesn't identify 
+* Doesn't identify cycles or explain the issues with them
+* Can't detect structure from data - useful but complicated to automate
 
 --
 ### Possible future work
-* Get feedback for new functionality
-* Import/export
-* d-seperation, d-connection
-* More
+* Get feedback for new functionality - most useful thing
+* "Realtime" simulation
+* Import/export network or simulations
+* Detect cycles in graph
+* List some conditional independencies and the methods for identifying them
 
 --
 #### Possible future work (cont)
+* Showing d-seperation, d-connection
+* Toggle hierarchical layout
+* Edit node details - name, color, states
+* Learn network structure
+* Deploy as native app - connectivity benefits
 
 
 <style>
