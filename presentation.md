@@ -22,6 +22,7 @@ controls: true
 * Value of statistical and causal knowledge
 * Ease of access of the web
 * Simple and fast interface
+    * Short feedback loop
 
 -- <!-- 2 -->
 ### Why should I care?
@@ -37,7 +38,8 @@ controls: true
 * For causality, mainly:
     * CMC - node independent of non-descendants given parents
     * Faithfulness - structure maps well to data and captures relationships
-    * Causal sufficiency - all common causes identified
+    * Causal sufficiency - all common causes measured
+        * VS completeness w/ all in the graph
 
 -- <!-- 4 -->
 ### Requirements
