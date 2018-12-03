@@ -2,11 +2,9 @@ title: bn-play Presentation
 output: ./dist/presentation.html
 controls: true
 
-<!--TODO:
-* [_] Practice timing
--->
-
 --
+<!-- TODO:
+* [_] Practice timing -->
 # `bn-play`
 ## A tool for learning and interfacing with Bayesian Networks
 > Josh Gribbon
@@ -35,6 +33,11 @@ controls: true
 ### Bayesian Networks review
 * Graphical model for conditional dependence
 * Directed Acyclic Graph (DAG)
+* Terminology
+* For causality, mainly:
+    * CMC - node independent of non-descendants given parents
+    * Faithfulness - structure maps well to data and captures relationships
+    * Causal sufficiency - all common causes identified
 
 -- <!-- 4 -->
 ### Requirements
@@ -109,6 +112,7 @@ Powerful and worth mentioning
     * Con: Isolated from the data
     * Pro: Avoids many concerns
 * Doesn't identify cycles or explain the issues with them
+    * Similarly, issues like cancelling out that violate faithfullness
 * Can't detect structure from data - useful but complicated to automate
 
 -- <!-- 15 -->
@@ -130,3 +134,4 @@ Powerful and worth mentioning
 -- <!-- 17 -->
 # Questions
 ## Thanks!
+jgribbon@stevens.edu
